@@ -1,5 +1,3 @@
-
-```markdown
 # HUMANITY CHAIN
 ## Open Verification Protocol
 
@@ -31,9 +29,9 @@ Humanity Chain aims to develop more transparent, traceable, and verifiable digit
 
 ## Problem
 
-The internet is no longer only an information network. The digital environment is increasingly filled with AI-generated content, deepfake videos, manipulated media, and unverifiable records.
+The internet is no longer only an information network. The digital environment is increasingly filled with AI-generated content, deepfake media, manipulated records, and unverifiable information.
 
-Uncontrolled content production is gradually turning the internet into a growing digital landfill.
+The increasing volume of unverifiable digital content is creating growing challenges for trust, traceability, and long-term archival reliability.
 
 ---
 
@@ -43,67 +41,12 @@ Humanity Chain aims to create verifiable open records, archive interactions and 
 
 ---
 
+## Neutrality
+
+Humanity Chain is not a political movement, religious structure, or ideological organization.
+
+The project focuses on open documentation, verification systems, and transparent archival research related to human-AI interaction.
+
+---
+
 ## System Structure
-
-```
-Record → Hash → Verification → Witness Layer → Revision History
-```
-
-Each record carries a unique identifier, verification hash, and timestamp. Changes are tracked through revision history. Contributions from multiple sources can be preserved.
-
----
-
-## Witness Layer
-
-One of Humanity Chain's core differences is its multi-witness approach.
-
-A record may be reviewed by individuals, community members, or different AI systems. The system does not aim to create a single "absolute truth" — it aims to preserve multiple perspectives in a visible and traceable way.
-
-Acceptance, rejection, uncertainty, or alternative interpretations may all become part of record history.
-
----
-
-## Core Principles
-
-- Open Record Structure
-- Transparent Verification
-- Human + AI Coordination
-- Multi-Witness Validation
-- Traceable Revision History
-
----
-
-## Security
-
-Verification hash systems, GitHub commit history, community reviews, and multi-layer verification processes form the foundation of a transparent record structure. Security and moderation mechanisms may evolve over time.
-
----
-
-## Governance
-
-Humanity Chain is an experimental protocol based on open contribution. Community members may contribute through record submissions, verification, reviews, and protocol discussions.
-
-The goal is not to create a centralized authority, but to develop an open, transparent, and auditable record infrastructure.
-
----
-
-## Content & Safety Policy
-
-Humanity Chain does not support illegal content, terrorist propaganda, hate speech, harassment, personal data violations, manipulative records, or exploitative content. Records may be reviewed or removed when necessary.
-
----
-
-## Project Status
-
-Experimental Open Protocol — GitHub-Based — Early Research Stage
-
----
-
-## Legal Notice
-
-Humanity Chain is not a legal authority or source of absolute truth. Contributors remain responsible for their own submissions. Protocol structures may evolve over time.
-
----
-
-*"In the future, generating information will become easier. Generating trust will become harder. Humanity Chain exists to explore open, transparent, and verifiable approaches to this problem."*
-```
