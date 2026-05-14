@@ -1,3 +1,4 @@
+
 name: Humanity Chain Validation
 
 on:
@@ -5,6 +6,12 @@ on:
     paths:
       - 'records/**'
       - 'schema/**'
+      - '.github/workflows/validate.yml'
+  pull_request:
+    paths:
+      - 'records/**'
+      - 'schema/**'
+      - '.github/workflows/validate.yml'
 
 jobs:
   validate:
@@ -14,14 +21,55 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate JSON files
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install jsonschema
+
+      - name: Validate records against schema
         run: |
-          echo "Checking JSON files..."
+          python - <<'PY'
+          import json
+          import pathlib
+          import sys
+          from jsonschema import validate, ValidationError, SchemaError
 
-          for file in $(find records schema -name "*.json"); do
-            python -m json.tool "$file" > /dev/null
-            echo "Valid: $file"
-          done
+          schema_path = pathlib.Path("schema/record-v1.schema.json")
+          records_dir = pathlib.Path("records")
 
-      - name: Finished
-        run: echo "Validation completed successfully."
+          if not schema_path.exists():
+              print(f"FAIL: Schema not found: {schema_path}")
+              sys.exit(1)
+
+          schema = json.loads(schema_path.read_text(encoding="utf-8"))
+          json_files = sorted(records_dir.rglob("*.json"))
+
+          if not json_files:
+              print("No JSON record files found.")
+              sys.exit(0)
+
+          failed = False
+
+          for file_path in json_files:
+              try:
+                  data = json.loads(file_path.read_text(encoding="utf-8"))
+                  validate(instance=data, schema=schema)
+                  print(f"PASS: {file_path}")
+              except json.JSONDecodeError as e:
+                  failed = True
+                  print(f"FAIL JSON: {file_path} -> {e}")
+              except ValidationError as e:
+                  failed = True
+                  print(f"FAIL SCHEMA: {file_path} -> {e.message}")
+              except SchemaError as e:
+                  failed = True
+                  print(f"FAIL SCHEMA FILE: {schema_path} -> {e.message}")
+
+          if failed:
+              sys.exit(1)
+
+          print("All record JSON files passed schema validation.")
+          PY
