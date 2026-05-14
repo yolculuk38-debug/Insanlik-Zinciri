@@ -225,3 +225,4 @@ python src/qr.py HC-CHATGPT-2026-0001 <hash> records/verified/HC-CHATGPT-2026-00
 - **archived** → Permanent, immutable
 
 See `docs/verification-workflow.md` for complete workflow details.
+<!-- editor test -->
