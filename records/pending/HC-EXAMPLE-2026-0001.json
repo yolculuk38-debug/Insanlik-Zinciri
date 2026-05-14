@@ -1,11 +1,15 @@
 {
+  "record_id": "HC-EXAMPLE-2026-0001",
   "id": "HC-EXAMPLE-2026-0001",
-  "timestamp": "2026-05-11T22:15:00Z",
+  "timestamp": "2026-05-08T00:00:00Z",
   "title": "Example Humanity Chain Record",
   "source": "Humanity Chain",
-  "content": "This is a sample record created to test the standard record format.",
+  "content": "Example archive record for schema validation testing",
   "witnesses": [
-    "ChatGPT"
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "Grok"
   ],
   "status": "pending",
   "prev_hash": "",
