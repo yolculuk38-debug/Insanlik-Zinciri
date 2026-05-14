@@ -1,0 +1,2 @@
+jsonschema==4.17.3
+qrcode[pil]==7.4.2
