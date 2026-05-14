@@ -3,6 +3,7 @@
   "id": "HC-2026-0002",
   "created_at": "2026-05-14T10:30:00Z",
   "record_type": "witness_record",
+  "witness_type": "multi_ai",
   "timestamp": "2026-05-12T09:45:00Z",
   "title": "Multi AI Witness Record",
   "source": "Humanity Chain",
