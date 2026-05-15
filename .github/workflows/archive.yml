@@ -6,6 +6,7 @@ on:
       - 'records/**'
       - 'src/**'
       - 'docs/**'
+      - 'qr/**'
 
 jobs:
   archive-system:
@@ -19,6 +20,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+
+      - name: Install QR Dependencies
+        run: |
+          pip install qrcode[pil]
+          pip install pillow
 
       - name: Normalize Records
         run: python src/normalize_records.py
