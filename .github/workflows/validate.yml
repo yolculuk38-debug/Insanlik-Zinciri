@@ -1,4 +1,3 @@
-
 name: Humanity Chain Validation
 
 on:
@@ -6,11 +5,13 @@ on:
     paths:
       - 'records/**'
       - 'schema/**'
+      - 'src/**'
       - '.github/workflows/validate.yml'
   pull_request:
     paths:
       - 'records/**'
       - 'schema/**'
+      - 'src/**'
       - '.github/workflows/validate.yml'
 
 jobs:
@@ -73,5 +74,6 @@ jobs:
 
           print("All record JSON files passed schema validation.")
           PY
-          - name: Verify content hashes
-            run: python src/verify_hashes.py records
+
+      - name: Verify content hashes
+        run: python src/verify_hashes.py records
