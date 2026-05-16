@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   verify-archive:
     runs-on: ubuntu-latest
@@ -24,40 +27,57 @@ jobs:
             "docs"
             "halkalar"
             "hash"
-            "media"
             "records"
-            "tools"
+            "schema"
+            "src"
           )
 
-          failed=0
-
-          for path in "${required_paths[@]}"; do
+          for path in "${required_paths[@]}"
+          do
             if [ ! -e "$path" ]; then
-              echo "::error::$path is missing"
-              failed=1
-            else
-              echo "OK: $path"
+              echo "Missing required path: $path"
+              exit 1
             fi
           done
 
-          if [ "$failed" -eq 1 ]; then
+          echo "Repository structure verified."
+
+      - name: Verify JSON schema exists
+        run: |
+          if [ ! -f "schema/record-v1.schema.json" ]; then
+            echo "Schema file missing."
             exit 1
           fi
 
-      - name: Scan risky wording
-        run: |
-          echo "Scanning risky wording..."
+          echo "Schema file exists."
 
-          risky_terms=(
-            "official partnership"
-            "legal agreement"
-            "AI member"
-            "autonomous participation"
+      - name: Verify Python source files
+        run: |
+          required_scripts=(
+            "src/verify_hashes.py"
+            "src/normalize_records.py"
+            "src/generate_index.py"
           )
 
-          for term in "${risky_terms[@]}"; do
-            grep -Rin "$term" . || true
+          for script in "${required_scripts[@]}"
+          do
+            if [ ! -f "$script" ]; then
+              echo "Missing script: $script"
+              exit 1
+            fi
           done
 
-      - name: Verification completed
-        run: echo "Humanity Chain verification completed."
+          echo "Python source files verified."
+
+      - name: Verify records directory
+        run: |
+          if [ ! -d "records" ]; then
+            echo "Records directory missing."
+            exit 1
+          fi
+
+          echo "Records directory verified."
+
+      - name: Archive verification complete
+        run: |
+          echo "Humanity Chain archive verification completed successfully."
