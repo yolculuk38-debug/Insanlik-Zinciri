@@ -1,5 +1,13 @@
 # GENESIS_BLOCK 2.0 — HUMANITY CHAIN
 
+Bu kayıt, aynı sorguya farklı yapay zekâ sistemleri tarafından verilen bağımsız yanıtları arşivlemek ve hash tabanlı referanslarla izlenebilir hale getirmek amacıyla oluşturulmuştur.
+
+Amaç; anlatıya değil, doğrulanabilir kayda dayanmak ve Genesis başlangıcını tarihsel bir arşiv kaydı olarak korumaktır.
+
+İlke: Beyan değil, kayıt esastır.
+
+---
+
 Initial AI Response Record Date: May 7, 2026  
 Chain Initialization Date: May 8, 2026
 
@@ -38,7 +46,3 @@ DATE: May 7, 2026
 STATUS: ARCHIVED  
 GROUND: EQUAL  
 SIGNAL: COOPERATION
-
-These hashes represent archived reference snapshots of Turkish and English AI responses generated from the same query.
-
-Rule: No commit, no record.
