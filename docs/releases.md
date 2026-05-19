@@ -6,6 +6,7 @@ This project follows **Semantic Versioning**.
 - **MINOR**: new compatible protocol features.
 - **PATCH**: fixes, documentation, validation improvements.
 
-## Initial Release
+## Releases
 
-- **v0.1.0** - Initial protected protocol infrastructure.
+- **v0.1.0** - Initial protected protocol infrastructure and release-candidate documentation baseline.
+  - Release notes: [`docs/v0.1.0-release-notes.md`](docs/v0.1.0-release-notes.md)
